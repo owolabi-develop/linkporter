@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activate</title>
+</head>
+<style>
+    *{
+        box-sizing: border-box;
+        margin: 0;
+    }
+</style>
+<body>
+
+    <div class="email_div">
+        {% autoescape off %}  
+Hi {{ user.first_name }} {{user.last_name}},  
+Please click on the link to confirm your registration,  
+http://{{ domain }}{% url 'activate' uidb64=uid token=token %}  
+{% endautoescape %}  
+    </div>
+    
+</body>
+</html>

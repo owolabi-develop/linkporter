@@ -1,0 +1,60 @@
+* {
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0px;
+}
+
+.articles_content{
+    margin: auto;
+    width: 80%;
+    margin-top: 10%;
+  
+}
+
+.articles_content input[type="Email"], input[type="url"]{
+    width: 300px;
+    padding: 10px;
+}
+
+.articles_content input[type='datetime-local']{
+    width: 200px;
+    padding: 10px;
+}
+
+.articles_content input[type="submit"],button{
+    width: 100px;
+    padding: 5px;
+
+}
+
+.form_holder{
+    margin-bottom: 50px;
+}
+
+
+table {
+    border-collapse: collapse;
+    width: 70%;
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 4px;
+   
+  }
+
+
+.surveyDiv{
+    margin: auto;
+    width: 50%;
+    margin-top: 10%;
+    padding: 10px;
+}
+
+
+.surveyDiv input[type="Email"], input[type="text"],select,input[type="email"]{
+    width: 300px;
+    padding: 10px;
+}

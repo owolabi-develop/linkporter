@@ -1,0 +1,100 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App</title>
+    <link rel="stylesheet" href=" {% static 'porter/main.css' %}">
+</head>
+<body>
+    <div class="articles_content">
+        <div class="form_holder">
+        <form action="{% url "index" %}" method="post">
+            {{ form.non_field_errors }}
+            {% csrf_token %}
+            <label for="{{ form.Article_links.id_for_label }}">Article Link:</label>
+            <p>{{form.Article_links}}</p>
+        
+
+          
+            
+            <input type="submit" value="Save link">
+        </form>
+    </div>
+
+
+    <div class="articls_holder">
+        <table>
+            <tr>
+                <th>Email</th>
+                <th>Links</th>
+                <th>Date</th>
+                <th>Action</th>
+            </tr>
+            {% if articles %}
+            {% for article in articles  %}
+            <tr>
+              
+                <td>{{request.user.email}}</td>
+                <td>{{article.Article_links}}</td>
+                <td>{{article.date_added}}</td>
+                <td><a href="{% url "delete" article.id %}"><button>Delete</button></a></td>
+                
+                
+              
+                
+                
+              </tr>
+              {% endfor %}
+              {% endif %}
+        </table>
+
+    </div>
+
+    <br/>
+
+    <p>Schedule link</p>
+
+    <form action="{% url "process_schedule" %}" method="post">
+        {% csrf_token %}
+
+        <input type="datetime-local" id="schedules" name="schedules">
+        <br/>
+        <br/>
+
+        <button type="submit">Schedule</button>
+    </form>
+
+  <br/>
+
+    <p>User Links Table</p>
+    <table>
+        <tr>
+            <th>Owner</th>
+            <th>Links</th>
+            <th>Date</th>
+            <th>Action</th>
+        </tr>
+        {% if userLinkTable %}
+        {% for link in userLinkTable  %}
+        <tr>
+          
+            <td>{{link.owner}}</td>
+            <td>{{link.links}}</td>
+            <td>{{link.date_added}}</td>
+            <td><a href="{% url "delete" link.id %}"><button>Delete</button></a></td>
+            
+            
+          
+            
+            
+          </tr>
+          {% endfor %}
+          {% endif %}
+    </table>
+
+
+    </div>
+</body>
+</html>
